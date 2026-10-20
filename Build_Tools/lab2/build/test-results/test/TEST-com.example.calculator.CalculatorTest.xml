@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.calculator.CalculatorTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-20T18:16:23" hostname="osama" time="0.546">
+  <properties/>
+  <testcase name="testDivideByZeroThrowsException()" classname="com.example.calculator.CalculatorTest" time="0.438"/>
+  <testcase name="testSum()" classname="com.example.calculator.CalculatorTest" time="0.031"/>
+  <testcase name="testSubtract()" classname="com.example.calculator.CalculatorTest" time="0.006"/>
+  <testcase name="testDivide()" classname="com.example.calculator.CalculatorTest" time="0.013"/>
+  <testcase name="testMultiply()" classname="com.example.calculator.CalculatorTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
