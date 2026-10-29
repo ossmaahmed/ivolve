@@ -4,5 +4,5 @@ metadata:
   name: ivolvecm
   namespace: ivolve
 data:
-  DB_HOST: "mysql-headless"
-  DB_USER: "ivolve_user"
+  DB_HOST: "mysql.ivolvedbsvc.ivolve.svc.cluster.local"
+  DB_USER: "ivolve"
