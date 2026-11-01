@@ -1,0 +1,31 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"gateway.networking.k8s.io/v1","kind":"HTTPRoute","metadata":{"annotations":{},"name":"register-app-route","namespace":"ivolve"},"spec":{"hostnames":["ivolve.com"],"parentRefs":[{"name":"gateway","namespace":"ivolve"}],"rules":[{"backendRefs":[{"name":"myapp-service","port":3000}],"matches":[{"path":{"type":"PathPrefix","value":"/"}}]}]}}
+  creationTimestamp: "2026-11-01T13:44:59Z"
+  generation: 1
+  name: register-app-route
+  namespace: ivolve
+  resourceVersion: "263870"
+  uid: 23ed1558-8c1c-4789-b164-8e2a4c7181d4
+spec:
+  hostnames:
+  - ivolve.com
+  parentRefs:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: gateway
+    namespace: ivolve
+  rules:
+  - backendRefs:
+    - group: ""
+      kind: Service
+      name: myapp-service
+      port: 3000
+      weight: 1
+    matches:
+    - path:
+        type: PathPrefix
+        value: /
