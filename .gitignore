@@ -3,3 +3,6 @@ Build_Tools/
 Docker/
 k8s/
 
+
+jenkins/lab2/ca.crt
+jenkins/lab2/secret.yaml
