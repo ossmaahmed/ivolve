@@ -1,0 +1,21 @@
+---
+- name: Configure MySQL with Ansible Vault
+  hosts: myservers
+  become: true
+  vars_files:
+    - vars/secrets.yml
+  roles:
+    - mysql
+
+  post_tasks:
+    - name: Validate - connect as ivolveuser and list databases
+      shell: mysql -u {{ db_user }} -e "SHOW DATABASES;"
+      environment:
+        MYSQL_PWD: "{{ db_password }}"
+      register: db_list
+      changed_when: false
+      no_log: true
+
+    - name: Show databases
+      debug:
+        var: db_list.stdout_lines

@@ -1,0 +1,32 @@
+---
+- name: Install MySQL server and PyMySQL
+  apt:
+    name:
+      - mysql-server
+      - python3-pymysql
+    state: present
+    update_cache: true
+
+- name: Start and enable MySQL
+  service:
+    name: mysql
+    state: started
+    enabled: true
+
+- name: Create ivolve database
+  community.mysql.mysql_db:
+    name: "{{ db_name }}"
+    state: present
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+
+- name: Create ivolveuser with all privileges on ivolve DB
+  community.mysql.mysql_user:
+    name: "{{ db_user }}"
+    plugin: caching_sha2_password
+    plugin_auth_string: "{{ db_password }}"
+    update_password: on_create
+    priv: "{{ db_name }}.*:ALL"
+    host: localhost
+    state: present
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  no_log: true
